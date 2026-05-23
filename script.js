@@ -1,59 +1,37 @@
-function gerarDeclaracao(){
+const button = document.getElementById("openMessage");
+const loveSection = document.getElementById("loveSection");
+const heartsContainer = document.querySelector(".hearts");
 
-    let nome = document.getElementById("nome").value;
+button.addEventListener("click", () => {
 
-    let texto = document.getElementById("texto").value;
+  loveSection.classList.remove("hidden");
 
-    if(nome === "" || texto === ""){
+  loveSection.scrollIntoView({
+    behavior: "smooth"
+  });
 
-        alert("Preencha todos os campos!");
+});
 
-        return;
-    }
+function createHeart(){
 
-    const data = new Date();
+  const heart = document.createElement("div");
 
-    const dataFormatada =
-        data.getDate() + "/" +
-        (data.getMonth() + 1) + "/" +
-        data.getFullYear();
+  heart.classList.add("heart");
 
-    document.getElementById("resultado").style.display = "block";
+  heart.innerHTML = "❤️";
 
-    document.getElementById("resultado").innerHTML = `
+  heart.style.left = Math.random() * 100 + "vw";
 
-        <h2>DECLARAÇÃO</h2>
+  heart.style.fontSize = Math.random() * 25 + 15 + "px";
 
-        <p>
-            Eu, <strong>${nome}</strong>, declaro para os devidos fins que:
-        </p>
+  heart.style.animationDuration = Math.random() * 5 + 5 + "s";
 
-        <br>
+  heartsContainer.appendChild(heart);
 
-        <p style="line-height:30px; text-align:justify;">
-            ${texto}
-        </p>
-
-        <br><br>
-
-        <p>
-            Data: ${dataFormatada}
-        </p>
-
-        <div class="assinatura">
-
-            <hr>
-
-            <p>${nome}</p>
-
-        </div>
-
-    `;
-
-    document
-    .getElementById("resultado")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+  setTimeout(() => {
+    heart.remove();
+  },10000);
 
 }
+
+setInterval(createHeart,300);
