@@ -1,32 +1,27 @@
-*{
-  width:300px;
-  height:300px;
-  background:#ff0055;
-  top:10%;
-  left:10%;
+{
+  left:0;
+  pointer-events:none;
 }
 
-.glow2{
-  width:300px;
-  height:300px;
-  background:#ff4f81;
-  bottom:10%;
-  right:10%;
+.heart{
+  position:absolute;
+  font-size:25px;
+  animation:cair linear forwards;
 }
 
-@keyframes fall{
+@keyframes cair{
   0%{
-    transform:translateY(-10vh) rotate(0deg);
+    transform:translateY(-10vh);
     opacity:1;
   }
 
   100%{
-    transform:translateY(110vh) rotate(360deg);
+    transform:translateY(110vh);
     opacity:0;
   }
 }
 
-@keyframes fadeUp{
+@keyframes entrada{
   from{
     opacity:0;
     transform:translateY(50px);
@@ -38,30 +33,24 @@
   }
 }
 
-@keyframes cardAnimation{
+@keyframes fade{
   from{
     opacity:0;
-    transform:scale(0.8);
   }
 
   to{
     opacity:1;
-    transform:scale(1);
   }
 }
 
 @media(max-width:768px){
 
-  .container h1{
-    font-size:2.5rem;
-  }
-
-  .container p{
-    font-size:1rem;
+  h1{
+    font-size:2rem;
   }
 
   .card{
-    padding:30px;
+    padding:25px;
   }
 
 }

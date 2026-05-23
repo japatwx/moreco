@@ -1,18 +1,14 @@
-const button = document.getElementById("openMessage");
-const loveSection = document.getElementById("loveSection");
-const heartsContainer = document.querySelector(".hearts");
+const btn = document.getElementById("btn");
+const mensagem = document.getElementById("mensagem");
+const hearts = document.querySelector(".hearts");
 
-button.addEventListener("click", () => {
+btn.addEventListener("click", () => {
 
-  loveSection.classList.remove("hidden");
-
-  loveSection.scrollIntoView({
-    behavior: "smooth"
-  });
+  mensagem.style.display = "block";
 
 });
 
-function createHeart(){
+function criarCoracao(){
 
   const heart = document.createElement("div");
 
@@ -22,16 +18,14 @@ function createHeart(){
 
   heart.style.left = Math.random() * 100 + "vw";
 
-  heart.style.fontSize = Math.random() * 25 + 15 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
 
-  heart.style.animationDuration = Math.random() * 5 + 5 + "s";
-
-  heartsContainer.appendChild(heart);
+  hearts.appendChild(heart);
 
   setTimeout(() => {
     heart.remove();
-  },10000);
+  },6000);
 
 }
 
-setInterval(createHeart,300);
+setInterval(criarCoracao,250);
